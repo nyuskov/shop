@@ -7,4 +7,9 @@ class Base(DeclarativeBase, AsyncAttrs):
 
     @declared_attr.directive
     def __tablename__(cls) -> str:
-        return f"{cls.__name__.lower()}s"
+        tablename = cls.__name__.lower()
+
+        if tablename[-1] == "y":
+            return f"{tablename[:-1]}ies"
+        else:
+            return f"{tablename}s"

@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).parent.parent
 
 
 class DBSettings(BaseModel):
-    URL: str = "sqlite:///./shop.db"
+    URL: str = "sqlite+aiosqlite:///./shop.db"
     ECHO: bool = True
 
 
